@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROZY | OFFICIAL PRESSKIT 2026</title>
+    <link rel="icon" type="image/png" href="Assets/ROZY ICON.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --neon-pink: #ff007a;
+            --dark-bg: #0a0a0a;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.5px;
+            background-color: #000; /* Warna dasar agar tidak putih saat loading */
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            
+            /* Gabungan Overlay Gelap dan Gambar */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                            url('Assets/background\ image.png');
+            
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            
+            /* EFEK BLUR DI SINI */
+            filter: blur(4px); 
+            
+            /* Transform scale untuk menghilangkan garis putih di pinggir layar akibat blur */
+            transform: scale(1.1); 
+            
+            z-index: -1; /* Memastikan background berada di paling belakang */
+        }
+
+        /* Background Effect */
+        .neon-glow {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 20%, rgba(255, 0, 122, 0.15) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        /* Hero Section Customization */
+        .hero {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+.hero h1 { font-size: 3.5rem; letter-spacing: -2px; margin-bottom: 0; }
+
+        /* Foto Profil Bulat */
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--neon-pink);
+            box-shadow: 0 0 20px rgba(255, 0, 122, 0.3);
+            
+        }
+
+        /* Logo Pengganti Teks */
+        .brand-logo {
+            width: 100%;
+            max-width: 280px;
+            height: auto;
+            margin: 10px auto;
+            display: block;
+            filter: drop-shadow(0 0 5px rgba(255,255,255,0.5));
+        }
+
+        .tagline { 
+            color: var(--neon-pink); 
+            font-size: 0.7rem; 
+            letter-spacing: 5px; 
+            font-weight: 700; 
+            margin-top: 15px;
+            display: block;
+        }
+
+        /* Info & Cards */
+        .info-card {
+            background: var(--glass);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+            text-align: justify;
+        }
+
+        .section-label {
+            color: var(--neon-pink);
+            font-family: 'Syncopate', sans-serif;
+            font-size: 0.75rem;
+            margin-bottom: 15px;
+            display: block;
+            opacity: 0.8;
+        }
+
+        .perform-img1 {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            border-radius: 10px solid transparent;
+            transition: 0.3s;
+        }
+
+        .perform-img2 {
+            width: 100%;
+            aspect-ratio: 9/16;
+            object-fit: cover;
+            border-radius: 10px solid transparent;
+            transition: 0.3s;
+        }
+
+        .perform-img1:hover { border-color: var(--neon-pink); }
+        .perform-img2:hover { border-color: var(--neon-pink); }
+
+        /* Buttons */
+        .btn-custom {
+            background: transparent;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 15px;
+            border-radius: 12px;
+            width: 100%;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: 0.3s;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .btn-custom:hover {
+            background: white;
+            color: black;
+        border-color: white;
+        }
+
+        .btn-whatsapp {
+            background: var(--neon-pink);
+            border: none;
+        color: white;
+        }
+
+        .venue-list { font-size: 0.9rem; opacity: 0.8; }
+        .venue-list div { padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+
+    <div class="neon-glow"></div>
+
+    <div class="container py-4" style="max-width: 500px;">
+        
+        <header class="hero">
+            
+            <span class="tagline">SMOOTH GROOVES ● ELEVATED VIBES</span>
+            
+            <img src="Assets/ROZY WHITE.png" alt="ROZY LOGO" class="brand-logo">
+            
+            
+            <p class="small opacity-50 mt-3">YOGYAKARTA BASED DJ</p>
+
+            <hr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+            <img src="Assets/DSC04659.jpg" alt="ROZY Profile" class="profile-img mt-4">
+        </header>
+
+        <section class="mt-2">
+            <div class="info-card">
+                <span class="section-label">// ABOUT</span>
+                <p class="small mb-0">
+                    <strong>ROSYANA PUTRA ALSO KNOWN AS ROZY.</strong> IS A YOGYAKARTA
+                    BASED DJ WHO BEGAN HIS CAREER IN JULY 2025.
+                    ORIGINALLY FROM <strong>SINGARAJA, BALI.</strong> HE BRINGS A
+                    RELAXED, GROOVY, AND VIBRANT VIBE TO EVERY
+                    PERFORMANCE. INSPIRED BY AMAPIANO AND R&B, ROZY IS
+                    KNOWN FOR HIS <em>SMOOTH YET ENERGETIC</em> SELECTIONS
+                    THAT CREATE A COMFORTABLE ATMOSPHERE WHILE
+                    ENERGIZING THE DANCEFLOOR. BEYOND PERFORMING, HE
+                    IS 
+                    PASSIONATE ABOUT EXPLORING THE <strong>CREATIVE
+                    INDUSTRY</strong>, PARTICULARLY <em>MUSIC AND VISUAL ARTS</em>,
+                    CONSTANTLY DEVELOPING HIS SOUND, PERFORMANCE
+                    CONCEPTS, AND AUDIENCE EXPERIENCE. SOCIABLE AND
+                    OPEN TO COLLABORATION, HE ACTIVELY CONNECTS WITH
+                    MUSIC AND CREATIVE COMMUNITIES. WITH A DREAM OF
+                    PERFORMING ON BIGGER STAGES, <strong>DJ ROZY</strong> CONTINUES TO
+                    GROW HIS SKILLS AND EXPAND HIS EXPERIENCE, BRINGING
+                    POSITIVE ENERGY AND A <strong>MEMORABLE VIBE</strong> TO EVERY SET.
+
+                </p>
+            </div>
+        </section>
+
+        <section>
+            <div class="info-card">
+                <span class="section-label">// GENRE</span>
+                <div class="d-flex flex-wrap gap-2">
+                    <span class="badge rounded-pill bg-dark border border-secondary p-2 px-3">EDM</span>
+                    <span class="badge rounded-pill bg-dark border border-secondary p-2 px-3">HOUSE</span>
+                    <span class="badge rounded-pill bg-dark border border-secondary p-2 px-3">AFRO HOUSE</span>
+                    <span class="badge rounded-pill bg-dark border border-secondary p-2 px-3">PROGRESSIVE HOUSE</span>
+                    <span class="badge rounded-pill bg-dark border border-secondary p-2 px-3">AMAPIANO</span>
+                    <span class="badge rounded-pill bg-dark border border-secondary p-2 px-3">R&B</span>
+                    <span class="badge rounded-pill bg-dark border border-secondary p-2 px-3">INDOBOUNCE</span>
+                    <span class="badge rounded-pill bg-dark border border-secondary p-2 px-3">BAILE FUNK</span>
+                    <span class="badge rounded-pill bg-dark border border-secondary p-2 px-3">MIAMI BASS</span>
+                    <span class="badge rounded-pill bg-dark border border-secondary p-2 px-3">UKG</span>
+                    <span class="badge rounded-pill bg-dark border border-secondary p-2 px-3">BOLHA</span>
+                    <span class="badge rounded-pill bg-dark border border-secondary p-2 px-3">TECHNO</span>
+                    <span class="badge rounded-pill bg-dark border border-secondary p-2 px-3">TECH HOUSE</span>
+                    <span class="badge rounded-pill bg-dark border border-secondary p-2 px-3">HIPHOP</span>
+                    <span class="badge rounded-pill bg-dark border border-secondary p-2 px-3">MOOMBAHTON</span>
+                    <span class="badge rounded-pill bg-dark border border-secondary p-2 px-3">AND MANY MORE</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="info-card">
+                <span class="section-label">// EXPERIENCE</span>
+                <div class="venue-list text-uppercase">
+                    <div>1. Liquid Jogja</div>
+                    <div>2. Sky Lounge Jogja</div>
+                    <div>3. On The Rock Beach Club</div>
+                    <div>4. The Gardens Jogja</div>
+                    <div>5. Gathering Dev3Web Jogja</div>
+                    <div>6. C28 Coffe Jogja</div>
+                    <div>7. White House 23</div>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="info-card">
+                <span class="section-label">// LATEST PERFORMANCES</span>
+                <div class="row g-2">
+                    <div class="col-12 mb-2">
+                        <img src="Assets/DSC04748.jpg" class="perform-img1 border border-danger rounded" alt="Performance">
+                    </div>
+                    <div class="col-6">
+                        <img src="Assets/c28.jpeg" class="perform-img2 border border-danger rounded" alt="Performance">
+                    </div>
+                    <div class="col-6">
+                        <img src="Assets/garden.jpeg" class="perform-img2 border border-danger rounded" alt="Performance">
+                    </div>
+                    <div class="col-6">
+                        <img src="Assets/otr.jpeg" class="perform-img2 border border-danger rounded" alt="Performance">
+                    </div>
+                    <div class="col-6">
+                        <img src="Assets/sky lounge.jpeg" class="perform-img2 border border-danger rounded" alt="Performance">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="pb-5">
+            <a href="https://wa.me/6282145588944" class="btn-custom btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> BOOK PERFORMANCE
+            </a>
+            <a href="https://www.instagram.com/rosyanaputra_?igsh=bDB2dzM5d2ZrbXV3" class="btn-custom">
+                <i class="fab fa-instagram"></i> INSTAGRAM
+            </a>
+            <a href="https://tiktok.com/@rosyanaputra" class="btn-custom">
+                <i class="fab fa-tiktok"></i> TIKTOK
+            </a>
+            <a href="https://www.youtube.com/channel/UCmgqbybbMu6BJ0kAjkkaFnw" class="btn-custom">
+                <i class="fab fa-youtube"></i> MIXTAPE & LIVE SET
+            </a>
+        </section>
+
+        <footer class="text-center opacity-75 py-4">
+            <p class="small" style="font-family: 'Syncopate'; font-size: 0.8rem;">DJ | PHOTOGRAPHER | VIDEOGRAPHER | EDITOR</p>
+            <p style="font-size: 0.5rem;">© 2026 ROZY OFFICIAL PRESSKIT</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>

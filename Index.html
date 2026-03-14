@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROZY | PROFILE SITE</title>
+    
+    <link rel="icon" type="image/png" href="Assets/ROZY ICON.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --deep-bg: #030303;
+            --main-accent: #ffffff;
+            --btn-dark-bg: #121212;
+            --btn-dark-hover: #ea00ff63;
+            --btn-special-bg: #ffffff;
+            --btn-special-text: #ea00ff;
+            --text-muted: #888888;
+            --glow-color: rgba(255, 255, 255, 0.08);
+            --transition-speed: 0.3s;
+        }
+
+        /* IDE 1: WAVEFORM BACKGROUND */
+        body {
+            background-color: var(--deep-bg);
+            color: var(--main-accent);
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Lapisan Khusus Background agar bisa di-blur */
+        body::before {
+            content: "";
+            position: fixed; /* Tetap di posisi saat di-scroll */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Gambar Background kamu */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                              url('https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            
+            /* EFEK BLUR DI SINI */
+            filter: blur(8px); /* Semakin besar angkanya, semakin buram */
+            
+            /* Membuat gambar sedikit lebih besar agar pinggiran blur tidak terlihat putih/kosong */
+            transform: scale(1.1); 
+            
+            z-index: -2; /* Berada di paling belakang */
+        }
+
+        /* Ambient Glow di belakang konten tetap kita pertahankan */
+        body::after {
+            content: "";
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: rgba(255, 255, 255, 0.04);
+            filter: blur(140px);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Hapus body::before lama kamu karena kita menggunakan background-image langsung */
+
+        .linktree-container {
+            width: 100%;
+            max-width: 480px;
+            padding: 50px 25px;
+            text-align: center;
+        }
+
+        /* --- Perbaikan Logo: Lebih Besar & Menonjol --- */
+        .brand-logo {
+            width: 320px; /* Saya naikkan ke 320px agar terlihat solid */
+            max-width: 90%; /* Tetap aman untuk layar HP */
+            height: auto;
+            margin: 0 auto 30px auto; /* Memberi jarak lebih lega ke teks di bawahnya */
+            display: block;
+            /* Glow dibuat lebih tebal agar logo putih menyala di background hitam */
+            filter: drop-shadow(0 0 20px rgba(225, 0, 255, 0.5)); 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .brand-logo:hover {
+            transform: scale(1.08); /* Efek zoom sedikit saat kursor menyentuh logo */
+            filter: drop-shadow(0 0 30px rgba(204, 0, 255, 1));
+        }
+
+        /* Tambahkan ini agar kontainer logonya tidak membatasi ukuran */
+        .profile-section {
+            padding: 0;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        
+
+        .sub-title {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        /* --- Tombol: Inti Perubahan agar Tidak Kaku --- */
+        .links-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 18px; /* Jarak antar tombol */
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 18px;
+            text-decoration: none;
+            color: var(--main-accent);
+            background: var(--btn-dark-bg);
+            
+            /* Perubahan Kunci: Border radius lebih besar, border lebih tipis */
+            border: 1px solid rgba(255, 0, 200, 0.05);
+            border-radius: 100px; /* Fully rounded buttons */
+            
+            /* Perubahan Kunci: Drop shadow halus */
+            box-shadow: 0 4px 15px rgba(234, 0, 255, 0.3);
+            
+            /* Transisi super halus */
+            transition: all var(--transition-speed) cubic-bezier(0.165, 0.84, 0.44, 1);
+            
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efek Shine saat Hover */
+        .link-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 0, 157, 0.315), transparent);
+            transition: all 0.6s;
+        }
+
+        .link-item:hover::after {
+            left: 100%;
+        }
+
+        .link-item i {
+            margin-right: 14px;
+            font-size: 1.1rem;
+            opacity: 0.8;
+            transition: transform var(--transition-speed) ease;
+        }
+
+        /* Efek Hover Intuitif */
+        .link-item:hover {
+            background: var(--btn-dark-hover);
+            color: var(--main-accent);
+            transform: translateY(-4px) scale(1.01); /* Mengangkat tombol sedikit */
+            border-color: rgba(255, 0, 0, 0.295);
+            
+            /* Menambahkan 'glow' halus di sekitar tombol */
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.06);
+        }
+
+        /* Animasi mikro pada ikon saat hover */
+        .link-item:hover i {
+            transform: scale(1.1);
+        }
+
+        /* --- Tombol Spesial: dukung --- */
+        .btn-dukung {
+            background: var(--btn-special-bg);
+            color: var(--btn-special-text);
+            border: none;
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        .btn-dukung i {
+            color: var(--btn-special-text);
+            opacity: 1;
+        }
+
+        .btn-dukung:hover {
+            background: #ffffff;
+            color: var(--btn-special-text);
+            transform: translateY(-5px) scale(1.02);
+            
+            /* Glow lebih kuat untuk tombol dukung */
+            box-shadow: 0 15px 40px rgba(255, 0, 0, 0.3);
+        }
+
+        /* --- Footer: Lebih Rapi & Aesthetic --- */
+        /* --- Footer Sosial Media yang Diperbarui --- */
+        .social-footer {
+            margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Jarak antar ikon */
+        }
+
+        .social-footer a {
+            color: var(--main-accent);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            
+            /* Efek Glassmorphism agar elegan */
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%; /* Membuat lingkaran sempurna */
+            
+            font-size: 1.2rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+        }
+
+        .social-footer a:hover {
+            color: #000; /* Warna ikon jadi hitam saat hover */
+            background: var(--main-accent); /* Latar jadi putih terang */
+            transform: translateY(-8px); /* Melompat sedikit lebih tinggi */
+            box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+            border-color: var(--main-accent);
+        }
+
+        /* Memberikan sedikit glow pada ikon saat hover */
+        .social-footer a:hover i {
+            filter: drop-shadow(0 0 5px rgba(0,0,0,0.2));
+        }
+
+        .copyright-text {
+            margin-top: 80px;
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.918); /* Dibuat lebih tipis transparannya */
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        /* Responsif Mobile */
+        @media (max-width: 480px) {
+            .brand-name { font-size: 1.7rem; letter-spacing: 5px; }
+            .linktree-container { padding: 40px 15px; }
+            .link-item { padding: 16px; font-size: 0.85rem; }
+            .links-wrapper { gap: 14px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="linktree-container">
+        
+        <div class="profile-section">
+            <img src="Assets/ROZY WHITE.png" alt="ROZY LOGO" class="brand-logo">
+            <p class="sub-title">⬇⬇⬇ SILAHKAN CEK DIBAWAH INI KAWAN ⬇⬇⬇</p>
+        </div>
+
+        <div class="links-wrapper">
+            <a href="OFFICIAL PRESSKIT ROZY WEB.html" target="_blank" class="link-item">
+                <i class="fa-solid fa-file-invoice"></i> PRESSKIT
+            </a>
+
+            <a href="https://drive.google.com/drive/folders/1SX7MM71rb6HIjMcH9HBy46rSM7G99i78?usp=sharing" class="link-item">
+                <i class="fa-solid fa-user-ninja"></i> PROFIL DJ ROZY
+            </a>
+
+            <a href="https://on.soundcloud.com/HKhdQfyHQfPLbe8IrA" target="_blank" class="link-item">
+                <i class="fa-brands fa-soundcloud"></i> SOUND CLOUD
+            </a>
+
+            <a href="https://wa.me/6282145588944" class="link-item">
+                <i class="fa-solid fa-calendar-check"></i> BOOKING DJ ROZY
+            </a>
+
+            <a href="https://saweria.co/rosyanaputra" target="_blank" class="link-item btn-dukung">
+                <i class="fa-solid fa-bolt"></i> DUKUNG ROZY
+            </a>
+        </div>
+
+        <div class="social-footer">
+            <a href="https://www.instagram.com/rosyanaputra_?igsh=bDB2dzM5d2ZrbXV3" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://open.spotify.com/user/31ihnvysbkwdxyxaevwoxsi3covi?si=hLhSTt1MRauc7EfPX6OpKQ" target="_blank"><i class="fa-brands fa-spotify"></i></a>
+            <a href="https://www.youtube.com/channel/UCmgqbybbMu6BJ0kAjkkaFnw" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://tiktok.com/@rosyanaputra" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+        </div>
+
+        <p class="copyright-text">
+            &copy; 2026 ROZY OFFICIAL
+        </p>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
